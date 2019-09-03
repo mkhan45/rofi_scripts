@@ -1,0 +1,55 @@
+#!/bin/dash
+options="`sed ~/dwm/scripts/browser.txt -Ee 's/\|.+//g' -e 's/^ *//g'`"
+outputs="`sed ~/dwm/scripts/browser.txt -Ee 's/.+\|//g' -e 's/^ *//g'`"
+string="`echo "$options" | rofi -dmenu -p Search -i`"
+
+if [ "$1" = "true" ]
+then
+    new_window=true
+else
+    new_window=false
+fi
+
+if [ `echo "$string" | wc -m` -eq 1 ]
+then
+    exit
+fi
+
+    
+line="`rg ~/dwm/scripts/browser.txt --line-number -i -e "$string" | rg -e '[0-9]+:' -o`"
+
+if [ `echo "$line" | wc -m` -eq 1 ]
+then
+    if [ `echo "$string" | rg -e "(\.com)$|(http)^" --multiline -m 1 -c` -eq 1 ]
+    then
+        if [ $new_window = true ]
+        then 
+            firefox --new-window "$string"
+        else
+            firefox "$string"
+        fi
+    else
+        if [ $new_window = true ]
+        then 
+            firefox --new-window https://duckduckgo.com/?q="$string"
+        else
+            firefox https://duckduckgo.com/?q="$string"
+        fi
+    fi
+    exit
+fi
+
+linenum="${line%?}"
+
+action="`echo "$outputs" | sed -e "$linenum!d"`"
+# echo $options
+# echo "$outputs"
+# echo $string
+# echo $linenum
+# echo $action
+if [ $new_window = true ]
+then 
+    firefox --new-window "$action"
+else
+    firefox "$action"
+fi
