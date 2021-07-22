@@ -1,6 +1,6 @@
-Home                    ||       st -e ranger /home/fish
-Pictures                ||       st -e ranger /home/fish/Pictures
-Downloads               ||       st -e ranger /home/fish/Downloads
+Home                    ||       st -e lf /home/fish
+Pictures                ||       st -e lf /home/fish/Pictures
+Downloads               ||       st -e lf /home/fish/Downloads
 ncollidetesting         ||       ~/dwm/scripts/fishcmd.dash 'cd ~/ncollidetesting'
 dwm                     ||       ~/dwm/scripts/fishcmd.dash 'cd ~/dwm'
 Config                  ||       ~/dwm/scripts/fishcmd.dash 'cd ~/dwm'
@@ -8,11 +8,17 @@ Add Action              ||       /home/fish/dwm/scripts/add.dash /home/fish/dwm/
 Add Browser Shortcut    ||       /home/fish/dwm/scripts/add.dash /home/fish/dwm/scripts/browser.txt
 fishrc                  ||       ~/dwm/scripts/fishcmd.dash 'nvim ~/.config/fish/config.fish'
 Edit Actions            ||       ~/dwm/scripts/fishcmd.dash 'nvim ~/dwm/scripts/actions.txt'
-Edit Shortcuts          ||       ~/dwm/scripts/fishcmd.dash 'nvim ~/dwm/scripts/browser.txt'
+Edit Shortcuts          ||       ~/dwm/scripts/fishcmd.dash 'nvim ~/dwm/scripts/shortcuts.txt'
 Curl Cheatsheet         ||       ~/dwm/scripts/fishcmd.dash 'nvim ~/curlstuff.txt'
 Weather                 ||       ~/dwm/scripts/fishcmd.dash 'curl wttr.in'
 IP Address              ||       ~/dwm/scripts/fishcmd.dash 'curl ifconfig.co'
 News                    ||       ~/dwm/scripts/fishcmd.dash 'curl ifconfig.co'
 Parrots                 ||       ~/dwm/scripts/fishcmd.dash 'curl parrot.live'
 Mystery                 ||       ~/dwm/scripts/fishcmd.dash 'curl -s -L http://bit.ly/10hA8iC | bash'
-School || st -e ranger ~/School
+TV || st -e lf /mnt/data/vid_archives
+School Stuff || st -e lf ~/"School_Stuff"
+Tetris || ~/dwm/scripts/fishcmd.dash 'ssh netris.rocketnine.space'
+Volume Control || ~/dwm/scripts/fishcmd.dash pulsemixer
+Proton VPN || ~/dwm/scripts/fishcmd.dash 'sudo protonvpn connect --fastest'
+Boilerkey || python ~/projects/local-boilerkey/boilerkey.py | xclip -sel clip
+Emojify || dash ~/dwm/scripts/emojify.sh
