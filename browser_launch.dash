@@ -1,5 +1,5 @@
 #!/bin/dash
-options="`sed ~/dwm/scripts/browser.txt -Ee 's/\|.+//g' -e 's/^ *//g'`"
+options="`sed ~/projects/rofi_scripts/browser.txt -Ee 's/\|.+//g' -e 's/^ *//g'`"
 string="`echo "$options" | rofi -dmenu -p Search -i`"
 
 if [ "$1" = "true" ]
@@ -14,8 +14,11 @@ then
     exit
 fi
 
-    
-line="`rg ~/dwm/scripts/browser.txt --line-number -i -e "$string" | rg -e '[0-9]+:' -o`"
+# checks if inputted option exists in the options file,
+# if it doesn't it's either a subreddit or a ddg search
+line="`rg ~/projects/rofi_scripts/browser.txt --line-number -i -e "$string" | rg -e '[0-9]+:' -o`"
+
+echo $line
 
 if [ -z "$line" ]
 then
@@ -31,7 +34,7 @@ then
     exit
 fi
 
-outputs="`sed ~/dwm/scripts/browser.txt -Ee 's/.+\|//g' -e 's/^ *//g'`"
+outputs="`sed ~/projects/rofi_scripts/browser.txt -Ee 's/.+\|//g' -e 's/^ *//g'`"
 linenum="${line%?}"
 action="`echo "$outputs" | sed -e "$linenum!d"`"
 

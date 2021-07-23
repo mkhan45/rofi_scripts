@@ -1,6 +1,6 @@
 #!/bin/dash
-options="`sed ~/dwm/scripts/actions.txt -Ee 's/\|\|.+//g' -e 's/^ *//g'`"
-outputs="`sed ~/dwm/scripts/actions.txt -Ee 's/.+\|\|//g' -e 's/^ *//g'`"
+options="`sed ~/projects/rofi_scripts/actions.txt -Ee 's/\|\|.+//g' -e 's/^ *//g'`"
+outputs="`sed ~/projects/rofi_scripts/actions.txt -Ee 's/.+\|\|//g' -e 's/^ *//g'`"
 string="`echo "$options" | rofi -dmenu -p Quick Launch -i`"
 
 if [ `echo "$string" | wc -m` -eq 1 ]
