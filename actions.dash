@@ -8,13 +8,14 @@ then
     exit
 fi
 
-line="`rg ~/dwm/scripts/actions.txt --line-number -i -e "$string" | rg -e '[0-9]+:' -o`"
+line="`rg ~/projects/rofi_scripts/actions.txt --line-number -i -e "$string" | rg -e '[0-9]+:' -o`"
 linenum="${line%?}"
 
 action="`echo "$outputs" | sed -e "$linenum!d"`"
 # echo $options
 # echo "$outputs"
 # echo $string
-# echo $linenum
+# echo "Linenum: $linenum"
+# echo "Line: $line"
 echo $action
 eval $action

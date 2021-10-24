@@ -14,11 +14,11 @@ Weather                 ||       ~/dwm/scripts/fishcmd.dash 'curl wttr.in'
 IP Address              ||       ~/dwm/scripts/fishcmd.dash 'curl ifconfig.co'
 News                    ||       ~/dwm/scripts/fishcmd.dash 'curl ifconfig.co'
 Parrots                 ||       ~/dwm/scripts/fishcmd.dash 'curl parrot.live'
-Mystery                 ||       ~/dwm/scripts/fishcmd.dash 'curl -s -L http://bit.ly/10hA8iC | bash'
-TV || st -e lf /mnt/data/vid_archives
+Mystery                 ||       ~/dwm/scripts/fishcmd.dash 'lf ~/Videos'
+TV || alacritty --working-directory ~/Videos -e lf
 School Stuff || st -e lf ~/"School_Stuff"
 Tetris || ~/dwm/scripts/fishcmd.dash 'ssh netris.rocketnine.space'
 Volume Control || ~/dwm/scripts/fishcmd.dash pulsemixer
 Proton VPN || ~/dwm/scripts/fishcmd.dash 'sudo protonvpn connect --fastest'
-Boilerkey || python ~/projects/local-boilerkey/boilerkey.py | xclip -sel clip
+Boilerkey || python3 ~/projects/local-boilerkey/boilerkey.py | xclip -sel clip
 Emojify || dash ~/dwm/scripts/emojify.sh
